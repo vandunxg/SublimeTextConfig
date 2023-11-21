@@ -1,0 +1,36 @@
+<snippet>
+	<content><![CDATA[#include <bits/stdc++.h>
+using namespace std;
+
+//
+int MOD = 1e9 + 7;
+using ll = long long;
+
+#define show(args...) describe(#args,args);
+template<typename T>
+void describe(string var_name, T value) {
+    clog << var_name << " = " << value << " " << endl;
+}
+
+template<typename T, typename... Args>
+void describe(string var_names, T value, Args... args) {
+    string::size_type pos = var_names.find(',');
+    string name = var_names.substr(0, pos);
+    var_names = var_names.substr(pos + 1);
+    clog << name << " = " << value << " | ";
+    describe(var_names, args...);
+}
+//
+
+
+
+
+int main(){
+    ${1:}
+}]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>maincpp</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.cpp</scope> -->
+</snippet>
+
