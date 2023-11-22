@@ -20,7 +20,11 @@ void describe(string var_names, T value, Args... args) {
     clog << name << " = " << value << " | ";
     describe(var_names, args...);
 }
-//
+// Declaration
+
+
+
+// Function
 
 
 
