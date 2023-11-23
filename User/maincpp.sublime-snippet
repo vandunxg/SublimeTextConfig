@@ -2,9 +2,11 @@
 	<content><![CDATA[#include <bits/stdc++.h>
 using namespace std;
 
-//
+//-----------------------------[DEFINE]-----------------------------//
 int MOD = 1e9 + 7;
 using ll = long long;
+
+//-----------------------------[DEBUG]-----------------------------//
 
 #define show(args...) describe(#args,args);
 template<typename T>
@@ -20,7 +22,7 @@ void describe(string var_names, T value, Args... args) {
     clog << name << " = " << value << " | ";
     describe(var_names, args...);
 }
-//
+//-----------------------------[END-DEBUG]-----------------------------//
 
 
 //-----------------------------[DECLARATION]-----------------------------//
