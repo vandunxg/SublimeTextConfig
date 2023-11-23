@@ -20,19 +20,22 @@ void describe(string var_names, T value, Args... args) {
     clog << name << " = " << value << " | ";
     describe(var_names, args...);
 }
-// Declaration
+//
+
+
+//-----------------------------[DECLARATION]-----------------------------//
 
 
 
-// Function
+//-----------------------------[FUNCTION]-----------------------------//
 
 
 
-// End Declaration & Function
+//-----------------------------[END]-----------------------------//
 
 
 int main(){
-    ${1:}
+    
 }]]></content>
 	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
 	<tabTrigger>maincpp</tabTrigger>
