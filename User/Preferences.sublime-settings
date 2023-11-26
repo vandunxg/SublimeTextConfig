@@ -1,7 +1,7 @@
 {
 	"theme": "auto",
 	"color_scheme": "Catppuccin Mocha.sublime-color-scheme",
-	"font_size": 20,
+	"font_size": 24,
 	"save_on_focus_lost": true,
 	"ignored_packages":
 	[

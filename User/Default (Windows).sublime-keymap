@@ -1,0 +1,22 @@
+[
+	{
+    "keys": ["ctrl+alt+b"],
+    "command": "chain",
+    "args": {
+        "commands": [
+            { "command": "set_build_system", "args": { "file": "Packages/User/CP.sublime-build" } },
+            { "command": "build" },
+        ]
+    }
+},
+{
+    "keys": ["ctrl+alt+t"],
+    "command": "chain",
+    "args": {
+        "commands": [
+            { "command": "set_build_system", "args": { "file": "Packages/User/CPP_runTerminal.sublime-build" } },
+            { "command": "build" },
+        ]
+    }
+}
+]
