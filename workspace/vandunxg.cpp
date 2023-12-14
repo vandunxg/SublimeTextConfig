@@ -1,9 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-//
-int MOD = 1e9 + 7;
+//-----------------------------[DEFINE]-----------------------------//
+const int MOD = 1e9 + 7;
 using ll = long long;
+
+//-----------------------------[DEBUG]-----------------------------//
 
 #define show(args...) describe(#args,args);
 template<typename T>
@@ -19,74 +21,56 @@ void describe(string var_names, T value, Args... args) {
     clog << name << " = " << value << " | ";
     describe(var_names, args...);
 }
-//
+//-----------------------------[END-DEBUG]-----------------------------//
 
 
+//-----------------------------[DECLARATION]-----------------------------//
 
-void findLeft(int arr[], int n, int left[]){
-    stack <int> st;
+int n, m, result;
+int arr[105][105], tmp[105][105];
+int dx[4] = {-1, 0, 0, 1};
+int dy[4] = {0, -1, 1, 0};
 
-    for(int i = n - 1; i >= 0; i--){
-        while(!st.empty() && arr[i] < arr[st.top()]){
-            left[st.top()] = i;
-            st.pop();
-        }
-        st.push(i);
+//-----------------------------[FUNCTION]-----------------------------//
+
+void solve(int x1, int y1){
+    int cnt = 0;
+    arr[x1][y1] = 0;
+
+    for(int i = 0; i < 4; i++){
+        int x2 = dx[i] + x1, y2 = dy[i] + y1;
+        if(x2 >= 1 && y2 >= 1 && x2 <= n && y2 <= m && tmp[x2][y2] == 1)
+            cnt++;
     }
+    result += 4 - cnt;
 
-    while(!st.empty()){
-        left[st.top()] = -1;
-        st.pop();
+    for(int i = 0; i < 4; i++){
+        int x2 = dx[i] + x1, y2 = dy[i] + y1;
+        if(x2 >= 1 && y2 >= 1 && x2 <= n && y2 <= m && arr[x2][y2] == 1)
+            solve(x2, y2);
     }
-
-    // for(int i = 0; i < n; i++){
-    //     cout << left[i] << " ";
-    // }
-
 }
 
+//-----------------------------[END]-----------------------------//
 
-void findRight(int arr[], int n, int right[]){
-    stack <int> st;
-
-    for(int i = 0; i < n; i++){
-        while(!st.empty() && arr[i] < arr[st.top()]){
-            right[st.top()] = i;
-            st.pop();
-        }
-        st.push(i);
-    }
-
-    while(!st.empty()){
-        right[st.top()] = n;
-        st.pop();
-    }
-
-    // for(int i = 0; i < n; i++){
-    //     cout << right[i] << " ";
-    // }
-
-}
 
 int main(){
-    int n;
-    cin >> n;
+    cin >> n >> m;
 
-    int arr[n];
-    for(auto &x : arr){
-        cin >> x;
+    for(int i = 1; i <= n; i++){
+        for(int j = 1; j <= m; j++){
+            cin >> arr[i][j];
+            tmp[i][j] = arr[i][j];
+        }
     }
 
-    int left[n], right[n];
-
-    findLeft(arr, n, left);
-    findRight(arr, n, right);
-
-    ll maxVal = -1e9;
-
-    for(int i = 0; i < n; i++){
-        maxVal = max(maxVal, 1ll * arr[i] * (right[i] - left[i] - 1));
+    for(int i = 1; i <= n; i++){
+        for(int j = 1; j <= m; j++){
+            if(arr[i][j]){
+                result = 0;
+                solve(i, j);
+                cout << result << " ";
+            }
+        }
     }
-    cout << maxVal;
-
 }
