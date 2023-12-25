@@ -1,2 +1,3 @@
 # SublimeTextConfig
-This is my Sublime Text Config Setup.
+This is the configuration setup for my Sublime Text.
+
